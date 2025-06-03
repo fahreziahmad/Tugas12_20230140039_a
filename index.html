@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Pendaftaran</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #FAF3E0; /* Light beige background from image */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .app-header {
+            background-color: #1828db; /* Dark orange from image header */
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .app-header h1 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+
+        .app-header nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 0.9em;
+        }
+
+        .app-header nav a:hover {
+            text-decoration: underline;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .form-container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px; /* Max width for the form card */
+            overflow: hidden; /* To ensure child border-radius works with background */
+        }
+
+        .form-title-banner {
+            background-color: #3434e9; /* Lighter orange from image form title */
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .form-content {
+            padding: 20px 30px 30px 30px;
+        }
+
+        label, .radio-section-title {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 0.9em;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .radio-group {
+            margin-bottom: 8px;
+            display: flex; /* Align radio button and label nicely */
+            align-items: center;
+        }
+
+        .radio-group input[type="radio"] {
+            margin-right: 8px;
+            accent-color: #da0c0c; /* Orange accent for radio button */
+        }
+
+        .radio-group label {
+            font-weight: normal;
+            margin-top: 0; /* Reset margin for radio labels */
+            margin-bottom: 0; /* Reset margin for radio labels */
+            color: #333;
+        }
+
+        .submit-button {
+            background-color: #e9ef33; /* Orange button color from image */
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: bold;
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background-color: #d7d423; /* Darker orange on hover */
+        }
+
+        .app-footer {
+            background-color: #333; /* Dark footer background */
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="app-header">
+        <h1>Aplikasi Pendaftaran</h1>
+        <nav>
+            <a href="#">Beranda</a>
+            <a href="#">Informasi</a>
+            <a href="#">Bantuan</a>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="form-container">
+            <div class="form-title-banner">
+                Pendaftaran Peminatan
+            </div>
+            <div class="form-content">
+                <form id="interestForm" action="javascript:void(0);">
+                    <label for="nama">Nama</label>
+                    <input type="text" placeholder="Nama anda" id="nama" name="nama">
+
+                    <label for="nim">NIM</label>
+                    <input type="text" placeholder="NIM anda" id="nim" name="nim">
+
+                    <p class="radio-section-title">Peminatan pada bidang:</p>
+                    <div class="radio-group">
+                        <input type="radio" name="peminatan" id="programming" value="programming" checked>
+                        <label for="programming">Programming</label>
+                    </div>
+                    <div class="radio-group">
+                        <input type="radio" name="peminatan" id="desain" value="desain">
+                        <label for="desain">Desain</label>
+                    </div>
+                    <div class="radio-group">
+                        <input type="radio" name="peminatan" id="jaringan" value="jaringan">
+                        <label for="jaringan">Jaringan</label>
+                    </div>
+                    <div class="radio-group">
+                        <input type="radio" name="peminatan" id="data" value="data">
+                        <label for="data">Data</label>
+                    </div>
+
+                    <label for="angkatan">Pilih Angkatan</label>
+                    <select id="angkatan" name="angkatan">
+                        <option value="2019">2019</option>
+                        <option value="2020" selected>2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                    </select>
+
+                    <label for="tanggal">Tanggal</label>
+                    <input type="date" id="tanggal" name="tanggal">
+
+                    <label for="alamat">Alamat</label>
+                    <textarea placeholder="Tulis alamat mu disini" name="alamat" id="alamat" rows="4"></textarea>
+
+                    <button type="button" class="submit-button" onclick="kirimData()">Kirim</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="app-footer">
+        &copy; 2025 Dibuat oleh fahrezi
+    </footer>
+
+    <script>
+        // Set default date for the date input
+        // The image shows "06/10/2023" in the input field.
+        // Standard HTML date input format is YYYY-MM-DD.
+        // If the placeholder mm/dd/yyyy is crucial and the displayed value must be in that format,
+        // a custom date picker or text input with validation would be needed.
+        // For now, setting the value as per standard:
+        document.getElementById('tanggal').value = "2023-10-06"; // October 6, 2023 (if interpreting as MM/DD/YYYY)
+        // Or if it's June 10, 2023 (DD/MM/YYYY interpretation)
+        // document.getElementById('tanggal').value = "2023-06-10";
+
+        function kirimData() {
+            const nama = document.getElementById('nama').value;
+            const nim = document.getElementById('nim').value;
+            const peminatan = document.querySelector('input[name="peminatan"]:checked').value;
+            const angkatan = document.getElementById('angkatan').value;
+            const tanggal = document.getElementById('tanggal').value; // This will be in YYYY-MM-DD format
+            const alamat = document.getElementById('alamat').value;
+
+            // Basic validation example
+            if (!nama || !nim || !tanggal || !alamat) {
+                alert("Harap lengkapi semua field yang wajib diisi!");
+                return;
+            }
+
+            alert(
+                "Data Pendaftaran:\n" +
+                "Nama: " + nama + "\n" +
+                "NIM: " + nim + "\n" +
+                "Peminatan: " + peminatan + "\n" +
+                "Angkatan: " + angkatan + "\n" +
+                "Tanggal: " + tanggal + "\n" + // Displayed in YYYY-MM-DD
+                "Alamat: " + alamat
+            );
+
+            // Here you would typically send the data to a server
+            // For example:
+            // fetch('/submit-form', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     },
+            //     body: JSON.stringify({ nama, nim, peminatan, angkatan, tanggal, alamat }),
+            // })
+            // .then(response => response.json())
+            // .then(data => console.log('Success:', data))
+            // .catch((error) => console.error('Error:', error));
+        }
+    </script>
+
+</body>
+</html>
